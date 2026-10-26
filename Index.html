@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRAME VIBE STUDIO | Every Frame Tells a Story</title>
+    <meta name="description" content="Professional Photography & Cinematic Videography for Your Most Precious Moments in Wankaner, Gujarat, India.">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #121212;
+            --bg-card: #181818;
+            --accent-gold: #d4af37;
+            --accent-gold-hover: #e6c555;
+            --text-main: #f5f5f5;
+            --text-muted: #a0a0a0;
+            --border-color: #2a2a2a;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            text-align: center;
+        }
+
+        .btn-gold {
+            background-color: var(--accent-gold);
+            color: #000;
+        }
+
+        .btn-gold:hover {
+            background-color: var(--accent-gold-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--accent-gold);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-gold);
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        /* Navigation Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 90px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo span {
+            font-size: 11px;
+            letter-spacing: 4px;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 500;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-menu a {
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--accent-gold);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.8)), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            padding-top: 90px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 0 20px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 64px);
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .hero .tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: clamp(20px, 3vw, 28px);
+            color: var(--accent-gold);
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: clamp(16px, 2vw, 18px);
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Section Headings */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px auto;
+        }
+
+        .section-header h2 {
+            font-size: clamp(30px, 4vw, 42px);
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--bg-secondary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            min-height: 450px;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--accent-gold);
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-item i {
+            color: var(--accent-gold);
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .feature-item h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .feature-item p {
+            font-size: 13px;
+            margin-bottom: 0;
+        }
+
+        /* Services Section (No Images) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            padding: 32px 24px;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+        }
+
+        .service-content {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .service-content h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--accent-gold);
+        }
+
+        .service-content p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        /* Client Reviews */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            padding: 32px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .review-card .stars {
+            color: var(--accent-gold);
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        .review-card p {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 15px;
+            margin-bottom: 24px;
+        }
+
+        .client-info h4 {
+            font-size: 16px;
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+
+        .client-info span {
+            font-size: 13px;
+            color: var(--accent-gold);
+        }
+
+        /* Contact & Booking Section */
+        .contact-booking {
+            background-color: var(--bg-secondary);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info-box h3 {
+            font-size: 28px;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .contact-info-box p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .contact-item i {
+            color: var(--accent-gold);
+            font-size: 20px;
+            margin-top: 4px;
+        }
+
+        .contact-item h4 {
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+
+        .contact-item p, .contact-item a {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-gold);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 250px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            margin-top: 20px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: grayscale(100%) invert(92%) hue-rotate(180deg);
+        }
+
+        /* Form Styling */
+        .form-box {
+            background-color: var(--bg-card);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-box h3 {
+            font-size: 24px;
+            margin-bottom: 24px;
+            color: var(--text-main);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-box .btn {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #20ba5a;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 90px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 90px);
+                background-color: var(--bg-primary);
+                flex-direction: column;
+                justify-content: center;
+                gap: 24px;
+                transition: var(--transition);
+                border-top: 1px solid var(--border-color);
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 70px 0;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-box {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                FRAME VIBE
+                <span>Studio</span>
+            </a>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#reviews">Client Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="https://wa.me/919974922206?text=Hello%20Frame%20Vibe%20Studio,%20I%20would%20like%20to%20book%20a%20shoot!" target="_blank" class="btn btn-gold" style="padding: 10px 20px; font-size: 13px;"><i class="fab fa-whatsapp"></i> Book Now</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Home Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>FRAME VIBE STUDIO</h1>
+            <p class="tagline">“Every Frame Tells a Story.”</p>
+            <p>“Professional Photography & Cinematic Videography for Your Most Precious Moments.”</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-gold"><i class="fas fa-calendar-check"></i> Book Your Shoot</a>
+                <a href="#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Frame Vibe Studio</h2>
+                <p>Capturing genuine emotions, cinematic celebrations, and unforgettable memories with passion and artistry.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1000&q=80" alt="Frame Vibe Studio Behind the Scenes">
+                </div>
+                <div class="about-text">
+                    <h3>Our Story & Mission</h3>
+                    <p>Based in Wankaner, Gujarat, Frame Vibe Studio was born out of a deep love for visual storytelling. We believe every wedding, celebration, and precious milestone has a unique narrative waiting to be told through the lens.</p>
+                    <p>Our mission is to preserve your authentic moments with elegance, clarity, and cinematic brilliance so you can relive the joy for a lifetime.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i class="fas fa-camera-retro"></i>
+                            <h4>Cinematic Style</h4>
+                            <p>Artistic lighting, candid framing, and emotional depth.</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-heart"></i>
+                            <h4>Real Emotions</h4>
+                            <p>Unobtrusive coverage capturing natural smiles and tears.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (Images Removed) -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Professional Services</h2>
+                <p>Tailored photography and videography solutions crafted to immortalize your celebrations.</p>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>1. Wedding Photography</h3>
+                        <p>Comprehensive, candid, and traditional coverage of your special wedding ceremonies and rituals.</p>
+                        <a href="https://wa.me/919974922206?text=Hello%20Frame%20Vibe%20Studio,%20I%20am%20interested%20in%20Wedding%20Photography." target="_blank" class="btn btn-outline" style="width: 100%;"><i class="fab fa-whatsapp"></i> Inquire via WhatsApp</a>
+                    </div>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>2. Cinematic Wedding Videography</h3>
+                        <p>Breathtaking cinematic films capturing the true grandeur, romance, and energy of your wedding day.</p>
+                        <a href="https://wa.me/919974922206?text=Hello%20Frame%20Vibe%20Studio,%20I%20am%20interested%20in%20Cinematic%20Wedding%20Videography." target="_blank" class="btn btn-outline" style="width: 100%;"><i class="fab fa-whatsapp"></i> Inquire via WhatsApp</a>
+                    </div>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>3. Pre-Wedding Photoshoots</h3>
+                        <p>Romantic and creatively directed couple shoots at stunning scenic locations before your big day.</p>
+                        <a href="https://wa.me/919974922206?text=Hello%20Frame%20Vibe%20Studio,%20I%20am%20interested%20in%20Pre-Wedding%20Photoshoots." target="_blank" class="btn btn-outline" style="width: 100%;"><i class="fab fa-whatsapp"></i> Inquire via WhatsApp</a>
+                    </div>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>4. Instagram Reels Shooting and Editing</h3>
+                        <p>Trendy, high-engagement short-form video reels perfectly edited with upbeat soundtracks for social media.</p>
+                        <a href="https://wa.me/919974922206?text=Hello%20Frame%20Vibe%20Studio,%20I%20am%20interested%20in%20Instagram%20Reels%20Shooting%20and%20Editing." target="_blank" class="btn btn-outline" style="width: 100%;"><i class="fab fa-whatsapp"></i> Inquire via WhatsApp</a>
+                    </div>
+                </div>
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>5. Wedding Highlights</h3>
+                        <p>Crisp, emotional, and soul-stirring 3 to 5-minute teaser edits condensing your entire celebration.</p>
+                        <a href="https://wa.me/919974922206?text=Hello%20Frame%20Vibe%20Studio,%20I%20am%20interested%20in%20Wedding%20Highlights." target="_blank" class="btn btn-outline" style="width: 100%;"><i class="fab fa-whatsapp"></i> Inquire via WhatsApp</a>
+                    </div>
+                </div>
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>6. Drone Photography and Videography</h3>
+                        <p>Majestic aerial perspectives and cinematic bird's-eye view shots (where legally permitted and available).</p>
+                        <a href="https://wa.me/919974922206?text=Hello%20Frame%20Vibe%20Studio,%20I%20am%20interested%20in%20Drone%20Photography%20and%20Videography." target="_blank" class="btn btn-outline" style="width: 100%;"><i class="fab fa-whatsapp"></i> Inquire via WhatsApp</a>
+                    </div>
+                </div>
+                <!-- Service 7 -->
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>7. Wedding Photo Albums</h3>
+                        <p>Premium, high-durability luxury coffee table photo albums with exquisite custom layouts and binding.</p>
+                        <a href="https://wa.me/919974922206?text=Hello%20Frame%20Vibe%20Studio,%20I%20am%20interested%20in%20Wedding%20Photo%20Albums." target="_blank" class="btn btn-outline" style="width: 100%;"><i class="fab fa-whatsapp"></i> Inquire via WhatsApp</a>
+                    </div>
+                </div>
+                <!-- Service 8 -->
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>8. Birthday Photography</h3>
+                        <p>Vibrant and lively event coverage for milestone birthdays, anniversaries, and family get-togethers.</p>
+                        <a href="https://wa.me/919974922206?text=Hello%20Frame%20Vibe%20Studio,%20I%20am%20interested%20in%20Birthday%20Photography." target="_blank" class="btn btn-outline" style="width: 100%;"><i class="fab fa-whatsapp"></i> Inquire via WhatsApp</a>
+                    </div>
+                </div>
+                <!-- Service 9 -->
+                <div class="service-card">
+                    <div class="service-content">
+                        <h3>9. Special Event Photography</h3>
+                        <p>Professional coverage for cultural gatherings, corporate functions, receptions, and community events.</p>
+                        <a href="https://wa.me/919974922206?text=Hello%20Frame%20Vibe%20Studio,%20I%20am%20interested%20in%20Special%20Event%20Photography." target="_blank" class="btn btn-outline" style="width: 100%;"><i class="fab fa-whatsapp"></i> Inquire via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Reviews Section -->
+    <section id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Clients Say</h2>
+                <p>Your trust and happiness inspire us to capture every moment beautifully.</p>
+            </div>
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>“Frame Vibe Studio captured our wedding ceremonies with such elegance and emotion. The cinematic video highlights brought tears of joy to our eyes. Absolutely professional team!”</p>
+                    <div class="client-info">
+                        <h4>Client Name</h4>
+                        <span>Wedding Couple, Wankaner</span>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>“We hired them for our pre-wedding shoot and the drone shots were breathtaking. They made us feel so comfortable in front of the camera. Highly recommended!”</p>
+                    <div class="client-info">
+                        <h4>Client Name</h4>
+                        <span>Pre-Wedding Shoot Client</span>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>“Punctual, polite, and exceptionally talented. The photo album quality and Instagram reels delivered were beyond our expectations. Thank you Alfaj & Taif!”</p>
+                    <div class="client-info">
+                        <h4>Client Name</h4>
+                        <span>Family Event Host</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Booking Section -->
+    <section id="contact" class="contact-booking">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact & Booking</h2>
+                <p>Get in touch with us to check availability and discuss your upcoming celebration.</p>
+            </div>
+            <div class="contact-grid">
+                <!-- Contact Info -->
+                <div class="contact-info-box">
+                    <h3>FRAME VIBE STUDIO</h3>
+                    <p>We are ready to travel to your destination or capture your moments right here in Gujarat. Reach out via call or WhatsApp anytime.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-user-tie"></i>
+                            <div>
+                                <h4>Contact Persons</h4>
+                                <p>Alfaj Sherasiya / Taif Sherasiya</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Phone Numbers</h4>
+                                <p><a href="tel:+919714099610">+91 97140 99610</a> / <a href="tel:+919974922206">+91 99749 22206</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <p><a href="https://wa.me/919974922206" target="_blank">+91 99749 22206</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Wankaner, Gujarat, India</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Business Hours</h4>
+                                <p>Monday – Sunday: 9:00 AM – 9:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <a href="tel:+919714099610" class="btn btn-gold"><i class="fas fa-phone"></i> Call Now</a>
+                        <a href="https://wa.me/919974922206?text=Hello%20Frame%20Vibe%20Studio,%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" class="btn btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp Now</a>
+                    </div>
+
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.5!2d70.93!3d22.61!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjIsMDA4JyI5LjAiTiA3MMKwNTUnNDguMCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <!-- Inquiry & Booking Form -->
+                <div class="form-box">
+                    <h3>Send an Inquiry</h3>
+                    <form id="inquiryForm" onsubmit="sendToWhatsApp(event)">
+                        <div class="form-group">
+                            <label for="custName">Customer Name</label>
+                            <input type="text" id="custName" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="custPhone">Phone Number</label>
+                            <input type="tel" id="custPhone" class="form-control" placeholder="Enter your phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventType">Event Type</label>
+                            <select id="eventType" class="form-control" required>
+                                <option value="" disabled selected>Select event type</option>
+                                <option value="Wedding">Wedding</option>
+                                <option value="Pre-Wedding Photoshoot">Pre-Wedding Photoshoot</option>
+                                <option value="Birthday">Birthday</option>
+                                <option value="Special Event">Special Event / Reception</option>
+                                <option value="Other">Other Celebration</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDate">Event Date</label>
+                            <input type="date" id="eventDate" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventLocation">Event Location</label>
+                            <input type="text" id="eventLocation" class="form-control" placeholder="City, Venue or Location" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reqService">Required Service</label>
+                            <select id="reqService" class="form-control" required>
+                                <option value="" disabled selected>Select required service</option>
+                                <option value="Wedding Photography">Wedding Photography</option>
+                                <option value="Cinematic Wedding Videography">Cinematic Wedding Videography</option>
+                                <option value="Pre-Wedding Photoshoot">Pre-Wedding Photoshoot</option>
+                                <option value="Instagram Reels">Instagram Reels Shooting and Editing</option>
+                                <option value="Wedding Highlights">Wedding Highlights</option>
+                                <option value="Drone Photography">Drone Photography and Videography</option>
+                                <option value="Wedding Photo Albums">Wedding Photo Albums</option>
+                                <option value="Birthday Photography">Birthday Photography</option>
+                                <option value="Special Event Photography">Special Event Photography</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="custMessage">Additional Message</label>
+                            <textarea id="custMessage" class="form-control" placeholder="Tell us more about your vision or requirements..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-gold"><i class="fab fa-whatsapp"></i> Send Inquiry on WhatsApp</button>
+                        <p style="font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 12px;">* Submitting this form opens WhatsApp with your inquiry pre-filled. Bookings are confirmed upon direct discussion.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Floating Action Button -->
+    <a href="https://wa.me/919974922206?text=Hello%20Frame%20Vibe%20Studio,%20I%20would%20like%20to%20know%20more%20about%20your%20photography%20services." target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.querySelector('i').classList.toggle('fa-bars');
+            hamburger.querySelector('i').classList.toggle('fa-times');
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.querySelector('i').classList.add('fa-bars');
+                hamburger.querySelector('i').classList.remove('fa-times');
+            });
+        });
+
+        // WhatsApp Form Integration
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('custName').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+            const eventType = document.getElementById('eventType').value;
+            const eventDate = document.getElementById('eventDate').value;
+            const location = document.getElementById('eventLocation').value.trim();
+            const service = document.getElementById('reqService').value;
+            const message = document.getElementById('custMessage').value.trim();
+
+            const whatsappNumber = "9974922206";
+
+            let text = `*New Inquiry — Frame Vibe Studio*%0A%0A`;
+            text += `*Customer Name:* ${encodeURIComponent(name)}%0A`;
+            text += `*Phone Number:* ${encodeURIComponent(phone)}%0A`;
+            text += `*Event Type:* ${encodeURIComponent(eventType)}%0A`;
+            text += `*Event Date:* ${encodeURIComponent(eventDate)}%0A`;
+            text += `*Location:* ${encodeURIComponent(location)}%0A`;
+            text += `*Required Service:* ${encodeURIComponent(service)}%0A`;
+            if(message) {
+                text += `*Message:* ${encodeURIComponent(message)}%0A`;
+            }
+
+            const url = `https://wa.me/${whatsappNumber}?text=${text}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
